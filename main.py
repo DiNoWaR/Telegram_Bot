@@ -1,9 +1,13 @@
 import os
+import webbrowser
 
 import telebot
 
 bot = telebot.TeleBot(token=os.environ['TELEGRAM_BOT_TOKEN'])
 
+@bot.message_handler(commands=['site'])
+def site(message):
+    webbrowser.open_new_tab('https://www.google.com')
 
 @bot.message_handler(commands=['start'])
 def main(message):
